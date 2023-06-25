@@ -1,14 +1,15 @@
 <?php
 define('DBSERVER', 'localhost'); // Database server
 define('DBUSERNAME', 'root'); // Database username
-define('DBNAME', 'demo'); // Database name
+define('DBPASSWORD', ''); // Database password
+define('DBNAME', 'bigcommerce'); // Database name
 
 /* connect to MySQL database */
-$db = mysql_connect(DBSERVER, DBUSERNAME, DBNAME);
+$db = mysqli_connect(DBSERVER, DBUSERNAME, DBPASSWORD, DBNAME);
 
 // Check db connection
 
 if($db == false){
-    die("Error: connection error. " . mysql_connect_error());
+    die("Error: connection error. " . mysqli_connect_error());
 }
 ?>
