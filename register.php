@@ -1,21 +1,5 @@
 <?php
 require_once('config.php');
-
-if(isset($_POST['create'])){
-    $firstname = $_POST['firstname'];
-    $lastname  = $_POST['lastname'];
-    $email     = $_POST['email'];
-
-    $sql = "INSERT INTO bigcomshop(firstname, lastname, email) VALUES(?, ?, ?, ?, ?)";
-    $stminsert = $db->prepare($sql);
-    $result = $stminsert->execute([$firstname, $lastname, $email]);
-    if($result){
-        echo 'Successfully saved!';
-    } else {
-        echo 'There was an error while saving your data.';
-    }
-   // echo $firstname . " " . $lastname . " " . $email;
-}
 //require_once "config.php";
 //require_once "session.php";
 
@@ -59,31 +43,56 @@ if(isset($_POST['create'])){
 <html>
 <head>
     <meta name="viewport" content="with=device-width, initial-scale=1.0">
-    <title>Sign-In & Sign-Up Form</title>
+    <title>BIGCOMMERCE</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://kit.fontawesome.com/bad3a99581.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div>
+        <?php
+            if(isset($_POST['create'])){
+                echo 'User submitted.';
+                $firstname = $_POST['firstname'];
+                $lastname  = $_POST['lastname'];
+                $email     = $_POST['email'];
+            
+                $sql = "INSERT INTO bigcomshop(firstname, lastname, email) VALUES(?, ?, ?, ?, ?)";
+                $stminsert = $db->prepare($sql);
+                $result = $stminsert->execute([$firstname, $lastname, $email]);
+                if($result){
+                    echo 'Successfully saved!';
+                } else {
+                    echo 'There was an error while saving your data.';
+                }
+               // echo $firstname . " " . $lastname . " " . $email;
+            }
+        ?>
+    </div>
     <div class="container">
         <div class="form-box">
             <img src="img/bigcommerce.png" height="20%" width="40%">
-            <h1 id="title">Sign-Up</h1>
+            <h1 id="title">Sign Up</h1>
             <form action="" method="post">
                 <div class="input-group">
                     <div class="input-field" id="nameField">
                         <i class="fa-solid fa-user-tie"></i>
-                        <input type="text" placeholder="Name">
+                        <input type="text" placeholder="First Name" name="firstname" required>
+                    </div>
+
+                    <div class="input-field" id="nameField">
+                        <i class="fa-solid fa-user-tie"></i>
+                        <input type="text" placeholder="Last Name" name="lastname" required>
                     </div>
 
                     <div class="input-field">
                         <i class="fa-solid fa-at"></i>
-                        <input type="email" placeholder="Email">
+                        <input type="email" placeholder="Email" name="email" required>
                     </div>
 
                 </div>
                 <div class="btn-field">
-                    <button type="button" id="signupBtn">Sign Up</button>
-                    <button type="button" id="signinBtn" class="disable">Sign In</button>
+                    <button type="submit" name="create" value="Sign Up" id="signupBtn" class="disable">Sign UP</button>
+                    <button type="submit" id="signinBtn" class="disable">Sign In</button>
                 </div>
             </form>
         </div>
