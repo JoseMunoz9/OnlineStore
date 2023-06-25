@@ -2,7 +2,7 @@
 define('DBSERVER', 'localhost'); // Database server
 define('DBUSERNAME', 'root'); // Database username
 define('DBPASSWORD', ''); // Database password
-define('DBNAME', 'bigcommerce'); // Database name
+define('DBNAME', 'bigcomshop'); // Database name
 
 /* connect to MySQL database */
 $db = mysqli_connect(DBSERVER, DBUSERNAME, DBPASSWORD, DBNAME);
