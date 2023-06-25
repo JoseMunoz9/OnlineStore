@@ -51,8 +51,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
         <div class="form-box">
             <img src="img/bigcommerce.png" height="20%" width="40%">
             <h1 id="title">Sign-Up</h1>
-            <?php echo $success; ?>
-            <?php echo $error; ?>
             <form action="" method="post">
                 <div class="input-group">
                     <div class="input-field" id="nameField">
