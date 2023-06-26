@@ -18,8 +18,8 @@ require_once('config.php');
                 $lastname  = $_POST['lastname'];
                 $email     = $_POST['email'];
             
-                $sql = "INSERT INTO bigcomshop(firstname, lastname, email) VALUES(?, ?, ?, ?, ?)";
-                $stminsert = $db->prepare($sql);
+                $sqli = "INSERT INTO bigcomshop(firstname, lastname, email) VALUES(?,?,?,?,?)";
+                $stminsert = $db->prepare($sqli);
                 $result = $stminsert->execute([$firstname, $lastname, $email]);
                 if($result){
                     echo 'Successfully saved!';
