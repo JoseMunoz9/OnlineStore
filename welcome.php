@@ -1,3 +1,16 @@
+<?php
+require_once('config.php');
+require_once('session.php');
+// Start session
+session_start();
+
+// Check if the user is not logged in, then redirect the user to login page
+if(!isset($_SESSION["userid"]) || $_SESSION["userid"] !== true){
+    header("location: welcome.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
