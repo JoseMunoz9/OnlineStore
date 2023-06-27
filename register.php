@@ -13,18 +13,35 @@ require_once('config.php');
     <div>
         <?php
             if(isset($_POST['create'])){
-                echo 'User submitted.';
+                // echo 'User submitted.';
                 $firstname = $_POST['firstname'];
                 $lastname  = $_POST['lastname'];
                 $email     = $_POST['email'];
             
-                $sqli = "INSERT INTO bigcomshop(firstname, lastname, email) VALUES(?,?,?,?,?)";
-                $stminsert = $db->prepare($sqli);
+                $sql = "INSERT INTO users(First_Name, Last_Name, Email) VALUES(?,?,?)";
+                $stminsert = $db->prepare($sql);
                 $result = $stminsert->execute([$firstname, $lastname, $email]);
                 if($result){
-                    echo 'Successfully saved!';
+                   // echo 'Successfully saved!';
                 } else {
                     echo 'There was an error while saving your data.';
+                }
+                // echo $firstname . " " . $lastname . " " . $email;
+            }
+
+            if(isset($_POST['login'])){
+                // echo 'User submitted.';
+               // $firstname = $_POST['firstname'];
+               // $lastname  = $_POST['lastname'];
+                $email     = $_POST['email'];
+            
+                $sql = "INSERT INTO users(Email) VALUES(?)";
+                $stminsert = $db->prepare($sql);
+                $result = $stminsert->execute([$email]);
+                if($result){
+                   // echo 'Successfully saved!';
+                } else {
+                   // echo 'There was an error while saving your data.';
                 }
                // echo $firstname . " " . $lastname . " " . $email;
             }
@@ -33,7 +50,7 @@ require_once('config.php');
     <div class="container">
         <div class="form-box">
             <img src="img/bigcommerce.png" height="20%" width="40%">
-            <h1 id="title">Sign Up</h1>
+            <h1 id="title">Sign UP</h1>
             <form action="" method="post">
                 <div class="input-group">
                     <div class="input-field" id="nameField">
@@ -54,7 +71,7 @@ require_once('config.php');
                 </div>
                 <div class="btn-field">
                     <button type="submit" name="create" value="Sign Up" id="signupBtn" class="disable">Sign UP</button>
-                    <button type="submit" id="signinBtn" class="disable"><a href="login.php">Sign IN</a></button>
+                    <button type="submit" name="login" value="Sign In" id="signinBtn" class="disable">Sign IN</button>
                 </div>
             </form>
         </div>

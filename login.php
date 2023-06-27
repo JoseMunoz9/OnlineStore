@@ -18,7 +18,7 @@ require_once('config.php');
                 $lastname  = $_POST['lastname'];
                 $email     = $_POST['email'];
             
-                $sql = "INSERT INTO bigcomshop(firstname, lastname, email) VALUES(?, ?, ?, ?, ?)";
+                $sql = "INSERT INTO users(First_Name, Last_Name, Email) VALUES(?,?,?)";
                 $stminsert = $db->prepare($sql);
                 $result = $stminsert->execute([$firstname, $lastname, $email]);
                 if($result){
@@ -33,7 +33,7 @@ require_once('config.php');
     <div class="container">
         <div class="form-box">
             <img src="img/bigcommerce.png" height="20%" width="40%">
-            <h1 id="title">Sign In</h1>
+            <h1 id="title">Sign IN</h1>
             <form action="" method="post">
                 <div class="input-group">
                     <div class="input-field">
@@ -43,7 +43,7 @@ require_once('config.php');
                 </div>
                 <div class="btn-field">
                     <button type="submit" name="create" value="Sign Up" id="signupBtn" class="disable">Sign UP</button>
-                    <button type="submit" id="signinBtn" class="disable">Sign In</button>
+                    <button type="submit" id="signinBtn" class="disable">Sign IN</button>
                 </div>
             </form>
         </div>
