@@ -1,9 +1,10 @@
 <?php
+// error_reporting(0);
 // Start session
 session_start();
 
 // Check if the user is not logged in, then redirect the user to the login page:
-    if(!isset($_SESSION["email"]) !== true){
+    if(!isset($_SESSION["lastname"]) || $_SESSION["email"] !== true){
         header('location: login.php');
         exit;
     }
@@ -19,8 +20,8 @@ session_start();
     </head>
 
     <body>
-        <h1>Hello, <?php echo $_SESSION["firstname"]; ?>! Welcome to BigCommerce.</h1>
-        <h2>How are you?</h2>
-        <a href="logout.php">Sign Out</a>
+        <li><a href="logout.php">Sign Out</a></li>
+        <h1>Hello, <strong><?php echo $_SESSION["firstname"]; ?></strong>! Welcome to BigCommerce.</h1>
+        <h2>Who We Are & What We Do</h2>
     </body>
 </html>

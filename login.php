@@ -1,5 +1,6 @@
 <?php
 require_once('config.php');
+session_start();
 if(isset($_POST['lastname']) && isset($_POST['email'])) {
     function validate($data){
         $data = trim($data);
@@ -24,7 +25,7 @@ if(isset($_POST['lastname']) && isset($_POST['email'])) {
  } else {
     header("Location: welcome.php");
     exit();
-}
+    }
 
 ?>
 <!DOCTYPE html>

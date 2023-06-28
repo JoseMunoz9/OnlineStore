@@ -1,5 +1,6 @@
 <?php
 require_once('config.php');
+// No need for: session_start();
 ?>
 <!DOCTYPE html>
 <html>
