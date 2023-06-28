@@ -1,15 +1,16 @@
 <?php
-// error_reporting(0);
+
+error_reporting(0);
+
 // Start session
 session_start();
 
 // Check if the user is not logged in, then redirect the user to the login page:
-    if(!isset($_SESSION["lastname"]) || $_SESSION["email"] !== true){
-        header('location: login.php');
+    if(!isset($_SESSION["lastname"]) !== true) {
+       header('location: login.php');
         exit;
     }
 ?>
-
 <!DOCTYPE html>
 <html>
     <head>

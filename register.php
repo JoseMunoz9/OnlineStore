@@ -1,6 +1,5 @@
 <?php
 require_once('config.php');
-// No need for: session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -40,7 +39,10 @@ require_once('config.php');
 
                 <div class="btn-field">
                     <button type="submit" name="create" value="Sign Up" id="signupBtn" class="disable">Sign UP</button>
-                    <button type="submit" name="login" value="Sign In" id="signinBtn" class="disable"><a href="login.php">Sign IN</a></button>
+                </div>
+
+                <div class="parra-field">
+                <p type="submit" name="login" value="Sign In" id="signinBtn" class="disable">Already registered?</p><a href="login.php">Sign In</a>
                 </div>
 
             </form>
@@ -69,16 +71,16 @@ require_once('config.php');
                     data: {firstname: firstname, lastname: lastname, email: email,},
                     success: function(data){
                         Swal.fire({
-                            'title': 'Successful',
-                            'text': data,
-                            'type': 'success'
+                            'title' : 'Successful',
+                            'text'  : data,
+                            'type'  : 'success'
                             })
                     },
                     error: function(data){
                         Swal.fire({
-                            'title': 'ERROR',
-                            'text': 'There was an error while creating your account!',
-                            'type': 'error'
+                            'title' : 'ERROR',
+                            'text'  : 'There was an error while creating your account!',
+                            'type'  : 'error'
                             })
                     }
                 });
@@ -88,21 +90,21 @@ require_once('config.php');
     </script>
 
     <script>
-        let signupBtn = document.getElementById("signupBtn");
-        let signinBtn = document.getElementById("signinBtn");
-        let nameField = document.getElementById("nameField");
-        let title = document.getElementById("title");
+        let signupBtn   = document.getElementById("signupBtn");
+        let signinBtn   = document.getElementById("signinBtn");
+        let nameField   = document.getElementById("nameField");
+        let title       = document.getElementById("title");
 
         signinBtn.onclick = function(){
-            nameField.style.maxHeight = "0";
-            title.innerHTML = "Sign In";
+            nameField.style.maxHeight   = "0";
+            title.innerHTML             = "Sign In";
             signupBtn.classList.add("disable");
             signinBtn.classList.remove("disable");
         }
 
         signupBtn.onclick = function(){
-            nameField.style.maxHeight = "60px";
-            title.innerHTML = "Sign Up";
+            nameField.style.maxHeight   = "60px";
+            title.innerHTML             = "Sign Up";
             signupBtn.classList.remove("disable");
             signinBtn.classList.add("disable");
         }

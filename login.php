@@ -1,29 +1,40 @@
 <?php
 require_once('config.php');
-session_start();
+require_once('session.php');
+
 if(isset($_POST['lastname']) && isset($_POST['email'])) {
+
     function validate($data){
-        $data = trim($data);
-        $data = stripcslashes($data);
-        $data = htmlspecialchars($data);
+        $data   = trim($data);
+        $data   = stripcslashes($data);
+        $data   = htmlspecialchars($data);
         return $data;
+
     }
 
-    $lastname = validate($_POST['lastname']);
-    $email = validate($_POST['email']);
+    $lastname   = validate($_POST['lastname']);
+    $email      = validate($_POST['email']);
 
     if (empty($lastname)){
-        header("Location: welcome.php?error=User last name is required");
+
+        header("location: welcome.php?error=User last name is required");
         exit();
+
     } else if (empty($email)){
-        header("Location: welcome.php?error=Email is required");
+
+        header("location: welcome.php?error=Email is required");
         exit();
+
     } else {
+
         echo "Valid input";
+
     }
 
+    //mysqli_close($db);
+
  } else {
-    header("Location: welcome.php");
+    header("location: welcome.php");
     exit();
     }
 
