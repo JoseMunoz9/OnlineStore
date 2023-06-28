@@ -3,7 +3,7 @@ require_once('config.php');
 ?>
 
 <?php
-if(isset($_POST)){
+    if(isset($_POST)){
 
     // Declaring variables:
     $firstname = $_POST['firstname'];
@@ -18,26 +18,13 @@ if(isset($_POST)){
     $stminsert  = $db->prepare($sql);
     $result     = $stminsert->execute([$firstname, $lastname, $email]);
 
-    if($result){
+        if($result){
 
-        echo 'Your account has been created!';
+            echo 'Your account has been created!';
 
-    } else {
+        } else {
         echo 'There was an error while saving your data.';
+        }
+
     }
-
-}
-
-// Here we are going to check if there is no other user with the same email:
-//$user_check_query   = "SELECT * FROM users WHERE email='$email' LIMIT 1";
-//$result             = mysqli_fetch($db, $user_check_query);
-//$user               = mysqli_fetch_assoc($result);
-
-// If user already exists:
-//if($user){
-  //if($user['email'] === $email){
-    //array_push($errors, "This email is already registered!");
-    //}
-//}
-
 ?>
