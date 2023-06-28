@@ -20,7 +20,7 @@ session_start();
 
     <body>
         <h1>Hello, <?php echo $_SESSION["firstname"]; ?>! Welcome to BigCommerce.</h1>
-        <h2>Welcome to Bigcommerce</h2>
-        <a href="logout.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Sign Out</a>
+        <h2>How are you?</h2>
+        <a href="logout.php">Sign Out</a>
     </body>
 </html>
