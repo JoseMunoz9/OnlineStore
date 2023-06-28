@@ -1,6 +1,6 @@
 <?php
 require_once('config.php');
-require_once('session.php');
+// require_once('session.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,7 +19,7 @@ require_once('session.php');
             <img src="img/bigcommerce.png" height="20%" width="40%">
             <h1 id="title">Sign UP</h1>
 
-            <form action="welcome.php" method="post">
+            <form action="register.php" method="post">
 
                 <div class="input-group">
                     <div class="input-field" id="nameField">

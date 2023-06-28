@@ -1,4 +1,5 @@
 <?php
+require_once('config.php');
 if(isset($_POST['lastname']) && isset($_POST['email'])) {
     function validate($data){
         $data = trim($data);
@@ -43,7 +44,7 @@ if(isset($_POST['lastname']) && isset($_POST['email'])) {
             <img src="img/bigcommerce.png" height="20%" width="40%">
             <h1 id="title">Sign IN</h1>
 
-            <form action="welcome.php" method="post">
+            <form action="login.php" method="post">
 
                 <div class="input-group">
 
